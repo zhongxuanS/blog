@@ -1,0 +1,26 @@
+header {
+    height: 180px;
+    width: 100%;
+    background: url(./images/banner.jpg);
+}
+
+.header-content {
+    position: relative;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.header-content .avatar {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+}
+
+.branding {
+    margin-top: 10px;
+}
+
+.branding h1 {
+    color: white;
+    font-size: 20px;
+}

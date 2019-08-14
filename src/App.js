@@ -1,27 +1,15 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import Header from './components/header/Header';
 import './App.css';
 class App extends Component {
   render() {
+    const blogInfo = {
+      blogTitle: 'szx9231',
+      blogBranding: 'Way to Fun'
+    };
+
     return (
-      <Container>
-        <Row className="justify-content-md-center">
-          <Col xs lg="2">
-            1 of 3
-        </Col>
-          <Col md="auto">Variable width content</Col>
-          <Col xs lg="2">
-            3 of 3
-        </Col>
-        </Row>
-        <Row>
-          <Col>1 of 3</Col>
-          <Col md="auto">Variable width content</Col>
-          <Col xs lg="2">
-            3 of 3
-        </Col>
-        </Row>
-      </Container>
+      <Header blogInfo={blogInfo}></Header>
     );
   }
 }
