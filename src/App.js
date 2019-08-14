@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import './App.css';
-import { Layout } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
 class App extends Component {
   render() {
     return (
-      <Layout>
-        <Header>header</Header>
-        <Layout>
-          <Sider>left sidebar</Sider>
-          <Content>main content</Content>
-          <Sider>right sidebar</Sider>
-        </Layout>
-        <Footer>footer</Footer>
-      </Layout>
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col xs lg="2">
+            1 of 3
+        </Col>
+          <Col md="auto">Variable width content</Col>
+          <Col xs lg="2">
+            3 of 3
+        </Col>
+        </Row>
+        <Row>
+          <Col>1 of 3</Col>
+          <Col md="auto">Variable width content</Col>
+          <Col xs lg="2">
+            3 of 3
+        </Col>
+        </Row>
+      </Container>
     );
   }
 }
