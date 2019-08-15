@@ -32,6 +32,16 @@
     }
 }
 
+.navbar-header {
+    display: none;
+}
+
+@media screen and (max-width: 767px){
+    .navbar-header {
+        display: block;
+    }
+}
+
 .navbar-header i {
     height: 56px;
     line-height: 56px;
@@ -39,13 +49,10 @@
     cursor: pointer;
 }
 
-.fa {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-}
-
-.fa-bars::before{
-    content: "\f0c9";
+.hamburger-btn {
+    float: right;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
 }
