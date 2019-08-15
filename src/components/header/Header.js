@@ -8,12 +8,12 @@ class Header extends React.Component {
     const blogInfo = this.props.blogInfo;
     return (
       <header>
-        <div class="header-content">
-          <a class="header-avatar" href="/" title={blogInfo.blogTitle}>
-            <img class="avatar" src={avatar} alt="avatar"></img>
+        <div className="header-content">
+          <a className="header-avatar" href="/" title={blogInfo.blogTitle}>
+            <img className="avatar" src={avatar} alt="avatar"></img>
           </a>
         </div>
-        <div class="branding">
+        <div className="branding">
           <h1>{blogInfo.blogBranding}</h1>
         </div>
       </header>
@@ -21,4 +21,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header
+export default Header;

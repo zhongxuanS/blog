@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/header/Header';
+import Nav from './components/nav/Nav';
 import './App.css';
 class App extends Component {
   render() {
@@ -9,7 +10,10 @@ class App extends Component {
     };
 
     return (
-      <Header blogInfo={blogInfo}></Header>
+      <div>
+        <Header blogInfo={blogInfo}></Header>
+        <Nav />
+      </div>
     );
   }
 }
