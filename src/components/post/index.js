@@ -1,17 +1,21 @@
 import React from 'react';
 import Img from '../image';
 
+import Loading from '../loading';
+
+import styles from './Post.module.css';
+
 class Post extends React.Component {
 
   render() {
     const { postMediaUrl } = this.props;
     return (
-      <div className="post">
-        <div className="postMedia">
-          <Img src={postMediaUrl} onload={() => console.log('loaded')} onerror={() => console.log('error')} />
+      <div className={styles.post}>
+        <div className={styles.postMedia}>
+          <Img src={postMediaUrl} loading={Loading} />
         </div>
-        <div className="postContent"></div>
-        <div className="postFooter"></div>
+        <div className={styles.postContent}></div>
+        <div className={styles.postFooter}></div>
       </div>
     );
   }

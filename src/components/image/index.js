@@ -1,7 +1,10 @@
 import React from 'react';
+
+import styles from './Image.module.css';
 /**
- * 1. 支持loading
- * 2. 支持error image
+ * 1. 支持loading: loading
+ * 2. 支持error image: loadFailed
+ * 3. 自定义图片src: src
  */
 class Img extends React.Component {
   constructor(props) {
@@ -68,7 +71,7 @@ class Img extends React.Component {
     if (!this.img) return null;
 
     if (isLoaded) {
-      return <img {...imgProps} alt="postMedia" />;
+      return <img className={styles.img} {...imgProps} alt="postMedia" />;
     }
 
     if (!isLoaded && isLoading) {

@@ -4,13 +4,14 @@ header {
     background: url(./images/banner.jpg);
 }
 
-.header-content {
+.headerContent {
     position: relative;
     width: 100%;
     padding-top: 30px;
 }
 
-.header-content .avatar {
+
+.avatar {
     width: 82px;
     height: 82px;
     border-radius: 50%;
