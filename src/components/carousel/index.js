@@ -15,7 +15,7 @@ class Carousel extends React.Component {
       slidesToScroll: 1
     };
 
-    const { urlList } = this.props;
+    const { urlList, className } = this.props;
 
     const styles = {
       marginTop: 0,
@@ -25,7 +25,7 @@ class Carousel extends React.Component {
     }
 
     return (
-      <div>
+      <div className={className}>
         <Slider {...settings}>
           {
             urlList && urlList.map((item) => {

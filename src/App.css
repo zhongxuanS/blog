@@ -17,3 +17,8 @@ a {
     display: block;
 }
 a:hover {color: #e67e22; text-decoration:none;}
+
+.carousel {
+    height: 155px;
+    margin-bottom: 30px;
+}

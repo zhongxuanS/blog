@@ -21,7 +21,7 @@ class App extends Component {
       <div>
         <Header blogInfo={blogInfo}></Header>
         <Nav />
-        <Carousel urlList={[{ id: 1, path: pic1 }, { id: 2, path: pic2 }, { id: 3, path: pic3 }]} />
+        <Carousel className="carousel" urlList={[{ id: 1, path: pic1 }, { id: 2, path: pic2 }, { id: 3, path: pic3 }]} />
         <Post postMediaUrl={pic1}></Post>
       </div>
     );
