@@ -1,19 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import './Nav.css';
+import './index.css';
 
 class Nav extends React.Component {
   render() {
     return (
       <nav className="main-navigation">
-        
+
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
               <div className="navbar-header">
                 <FontAwesomeIcon className="hamburger-btn" size='2x' icon={faBars} />
-                <a className="slogan" href="/">多看多想多写多思考</a> 
+                <a className="slogan" href="/">多看多想多写多思考</a>
               </div>
               <div className="navbar-collapse navbar" id="main-menu">
                 <ul className="menu">
@@ -27,7 +27,7 @@ class Nav extends React.Component {
             </div>
           </div>
         </div>
-      </nav>    
+      </nav>
     );
   }
 }
