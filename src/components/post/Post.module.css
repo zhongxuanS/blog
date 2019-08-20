@@ -1,6 +1,11 @@
 .postContainer {
+    margin-bottom: 10px;
     background: #ffffff;
     overflow: hidden;
+}
+
+.postContainer:last-child {
+    margin-bottom: 0px;
 }
 
 .postContainer .post {
