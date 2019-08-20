@@ -1,11 +1,23 @@
-.post {
+.postContainer {
     background: #ffffff;
     overflow: hidden;
 }
+
+.postContainer .post {
+    overflow: hidden;
+}
+
 .post .postMedia{
     float: left;
     width: 220px;
     height: 160px;
+    margin: 16px 20px 0px 20px;
+}
+
+@media screen and (max-width: 767px){
+    .post .postMedia{
+        width: 100%;
+    }
 }
 
 .post .postMedia a{
@@ -14,4 +26,43 @@
    display: table-cell;
    vertical-align: middle;
    text-align: center;
+}
+
+
+.postContent {
+    text-align: left;
+    margin: auto 20px;
+}
+
+.postContent .title {
+    font-size: 1.5em;
+    line-height: 1.35em;
+    margin: 0;
+}
+
+.postContent .title  a{
+    line-height: 3em;
+}
+
+.postContent .date {
+    color: #959595;
+    margin: 5px 0;
+}
+
+.postContent .brief {
+    color: #666666;
+    margin: 5px 0;
+    overflow: hidden;
+}
+
+
+.postFooter {
+    border-top: 1px solid gray;
+    margin: 10px 20px 10px;
+    padding-top: 15px;
+    overflow: hidden;
+}
+
+.postFooter .permalink {
+    float: right;
 }
