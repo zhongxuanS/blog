@@ -21,8 +21,19 @@ class App extends Component {
       <div>
         <Header blogInfo={blogInfo}></Header>
         <Nav />
-        <Carousel className="carousel" urlList={[{ id: 1, path: pic1 }, { id: 2, path: pic2 }, { id: 3, path: pic3 }]} />
-        <Post postMediaUrl={pic1}></Post>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 main-content">
+              <Carousel className="carousel" urlList={[{ id: 1, path: pic1 }, { id: 2, path: pic2 }, { id: 3, path: pic3 }]} />
+              <Post postMediaUrl={pic1}></Post>
+            </div>
+
+            <div className="col-md-4 siderbar">
+
+            </div>
+          </div>
+        </div>
+
       </div>
     );
   }
