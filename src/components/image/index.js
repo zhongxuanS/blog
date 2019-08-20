@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import styles from './Image.module.css';
 /**
@@ -63,25 +64,54 @@ class Img extends React.Component {
 
   render() {
     const { isLoaded, isLoading } = this.state;
-    const { src, loading, loadFailed } = this.props;
-    const imgProps = {
-      src: src
-    }
+    const { src, className, Loading, LoadFailed, alt, style, width, height } = this.props;
 
     if (!this.img) return null;
 
     if (isLoaded) {
-      return <img className={styles.img} {...imgProps} alt="postMedia" />;
+      return <img
+        src={src}
+        className={className}
+        width={width}
+        height={height}
+        style={{ ...styles, style }}
+        alt={alt} />;
     }
 
     if (!isLoaded && isLoading) {
-      return loading ? loading : <div>载入中...</div>;
+      return <Loading />;
     }
 
     if (!isLoaded && !isLoading) {
-      return loadFailed ? loadFailed : <div>载入图片失败</div>
+      return <LoadFailed />;
     }
   }
 }
+
+
+Img.defaultProps = {
+  src: null,
+  className: null,
+  width: '100%',
+  height: '100%',
+  alt: '图片下载失败',
+  style: {},
+  Loading: <div>载入中...</div>,
+  LoadFailed: <div>载入图片失败</div>
+};
+
+Img.propTypes = {
+  src: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  alt: PropTypes.string,
+  style: PropTypes.object,
+  Loading: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+  LoadFailed: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+}
+
+
+
 
 export default Img;

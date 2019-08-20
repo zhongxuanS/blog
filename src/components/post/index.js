@@ -12,7 +12,13 @@ class Post extends React.Component {
     return (
       <div className={styles.post}>
         <div className={styles.postMedia}>
-          <a href="/"><Img src={postMediaUrl} loading={Loading} /></a>
+          <a href="/">
+            <Img
+              src={postMediaUrl}
+              Loading={Loading}
+              LoadFailed={Loading}>
+            </Img>
+          </a>
         </div>
         <div className={styles.postContent}>
           <h1 className={styles.title}>史上最全的Webstorm快捷键及技巧</h1>
