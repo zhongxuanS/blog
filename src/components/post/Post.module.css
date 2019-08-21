@@ -2,6 +2,7 @@
     margin-bottom: 10px;
     background: #ffffff;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .postContainer:last-child {
@@ -12,27 +13,26 @@
     overflow: hidden;
 }
 
-.post .postMedia{
+.post .postMedia {
     float: left;
     width: 220px;
     height: 160px;
     margin: 16px 20px 0px 20px;
 }
 
-@media screen and (max-width: 767px){
-    .post .postMedia{
+@media screen and (max-width: 767px) {
+    .post .postMedia {
         width: 100%;
     }
 }
 
-.post .postMedia a{
+.post .postMedia a {
     width: 100%;
     height: 100%;
-   display: table-cell;
-   vertical-align: middle;
-   text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
-
 
 .postContent {
     text-align: left;
@@ -45,7 +45,7 @@
     margin: 0;
 }
 
-.postContent .title  a{
+.postContent .title a {
     line-height: 3em;
 }
 
@@ -59,7 +59,6 @@
     margin: 5px 0;
     overflow: hidden;
 }
-
 
 .postFooter {
     border-top: 1px solid gray;

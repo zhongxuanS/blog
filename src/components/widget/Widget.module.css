@@ -1,0 +1,28 @@
+.widget {
+    background: #ffffff;
+    padding: 16px 25px;
+    text-align: left;
+}
+
+.title {
+    font-size: 2.0em;
+    color: #303030;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #ebebeb;
+    position: relative;
+}
+
+.title::after {
+    content: "";
+    background: #e67e22;
+    width: 120px;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+}
+
+.content {
+    color: #000000;
+}
