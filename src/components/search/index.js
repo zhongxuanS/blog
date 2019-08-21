@@ -41,29 +41,97 @@ const SearchItem = ({ href, title, content }) => {
   );
 }
 
+const Mask = ({ isShow, onClick }) => isShow ? <div className={`${styles.mask}`} onClick={onClick}></div> : null;
+
 class Search extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      searchKey: '',
+      searchResult: null,
+      isBeginSearch: false
+    };
+
+    this.searchChanged = this.searchChanged.bind(this);
+    this.onClickMask = this.onClickMask.bind(this);
+  }
+
+  /**
+   * 1.显示mask
+   * 2.按照输入的关键字过滤结果
+   * 3.显示结果
+   * @param {*} event 
+   */
+  searchChanged(event) {
+    const searchKey = event.target.value;
+
+    if (searchKey !== '') {
+      const searchResult = SEARCH_RESULT.filter((item) => item.title.includes(searchKey) || item.content.includes(searchKey));
+
+      this.setState({
+        searchKey: searchKey,
+        searchResult: searchResult,
+        isBeginSearch: true
+      });
+
+      console.log(searchResult);
+    } else {
+      this.setState({
+        searchKey: '',
+        searchResult: null,
+        isBeginSearch: false
+      });
+    }
+    event.preventDefault();
+  }
+
+  onClickMask() {
+    this.setState({
+      searchKey: '',
+      searchResult: null,
+      isBeginSearch: false
+    });
+  }
+
   render() {
     const { placeholder, searchButtonText } = this.props;
 
+    const { searchKey, searchResult, isBeginSearch } = this.state;
+
+    const hasSearchResult = (searchResult && searchResult.length > 0) ? true : false;
+
     return (
       <div className={styles.searchForm}>
-        <div className={`${styles.mask} ${styles.hide}`}></div>
+        <Mask isShow={isBeginSearch && hasSearchResult} onClick={this.onClickMask} />
         <div className={styles.searchArea}>
-          <input className={styles.searchKey} type="search" autoComplete="off" placeholder={placeholder} />
-          <SearchButton className={styles.searchButton} searchButtonText={searchButtonText}></SearchButton>
+          <input
+            className={styles.searchKey}
+            type="search"
+            autoComplete="off"
+            placeholder={placeholder}
+            onChange={this.searchChanged}
+            value={searchKey} />
+
+          <SearchButton
+            className={styles.searchButton}
+            searchButtonText={searchButtonText}>
+          </SearchButton>
         </div>
 
-        <div className={`${styles.resultWrapper}`}>
-          {
-            SEARCH_RESULT.map(result => {
-              return (<SearchItem
-                key={result.id}
-                href={result.href}
-                title={result.title}
-                content={result.content} />);
-            })
-          }
-        </div>
+        {
+          hasSearchResult ? <div className={`${styles.resultWrapper}`}>
+            {
+              searchResult.map(result => {
+                return (<SearchItem
+                  key={result.id}
+                  href={result.href}
+                  title={result.title}
+                  content={result.content} />);
+              })
+            }
+          </div> : null
+        }
       </div>
     );
   }
