@@ -1,22 +1,7 @@
-import React from 'react';
-import PropTypes from "prop-types";
+import Button from './Button';
+import SearchButton from './SearchButton';
 
-import Styles from './button.module.css';
-
-const Button = ({ className, href, text }) =>
-  <a className={`${Styles.button} ${className}`} href={href}>{text}</a>
-
-
-Button.defaultProps = {
-  className: '',
-  href: '/',
-  text: 'Button'
+export {
+  Button,
+  SearchButton
 }
-
-Button.propTypes = {
-  className: PropTypes.string,
-  href: PropTypes.string,
-  text: PropTypes.string
-}
-
-export default Button;

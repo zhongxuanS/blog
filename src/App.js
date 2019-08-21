@@ -5,6 +5,7 @@ import Nav from './components/nav';
 import Carousel from './components/carousel';
 import Post from './components/post';
 import Widget from './components/widget';
+import Search from './components/search';
 
 import pic1 from './components/carousel/images/pic1.jpg';
 import pic2 from './components/carousel/images/pic2.jpg';
@@ -50,7 +51,11 @@ class App extends Component {
             </div>
 
             <div className="col-md-4 siderbar">
-              <Widget title="title">test</Widget>
+              <Widget title="title">
+                <Search
+                  placeholder="请输入关键字"
+                  searchButtonText="站内搜索" />
+              </Widget>
             </div>
           </div>
         </div>

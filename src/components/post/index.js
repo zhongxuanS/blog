@@ -2,7 +2,7 @@ import React from 'react';
 import Img from '../image';
 
 import Loading from '../loading';
-import Button from '../button';
+import { Button } from '../button';
 
 import styles from './Post.module.css';
 

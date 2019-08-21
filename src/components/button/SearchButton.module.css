@@ -1,0 +1,9 @@
+.searchBtn {
+    display: inline-block;
+    height: 32px;
+    background: #e67e22;
+    color: #ffffff;
+    border-radius: 0 4px 4px 0;
+    border: 1px solid #e67e22;
+    box-sizing: border-box;
+}
