@@ -1,0 +1,20 @@
+.social {
+    margin: 18px auto;
+}
+.social .socialItem {
+    background: grey;
+    display: inline-block;
+    padding: 6px 8px;
+    line-height: 20px;
+    height: 40px;
+    border-radius: 2px;
+    transition: all 0.2s ease-in-out;
+    margin-right: 10px;
+}
+.social .socialItem:hover {
+    background:  #e67e22;
+}
+
+.social .socialItem:last-child {
+    margin-right: 0;
+}

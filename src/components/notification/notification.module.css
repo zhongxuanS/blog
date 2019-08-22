@@ -1,0 +1,9 @@
+.notification span {
+    width: 20%;
+    display: inline-block;
+}
+.notification a {
+    display: inline;
+    line-height: 2.5em;
+    color: #e67e22;
+}

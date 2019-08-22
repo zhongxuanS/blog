@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import Header from './components/header';
 import Nav from './components/nav';
@@ -6,6 +9,8 @@ import Carousel from './components/carousel';
 import Post from './components/post';
 import Widget from './components/widget';
 import Search from './components/search';
+import Notification from './components/notification';
+import Social from './components/social';
 
 import pic1 from './components/carousel/images/pic1.jpg';
 import pic2 from './components/carousel/images/pic2.jpg';
@@ -13,12 +18,27 @@ import pic3 from './components/carousel/images/pic3.jpg';
 
 import './App.css';
 
+library.add(fab, fas);
+
 const PostList = [
   { id: '1', postMediaUrl: pic1, postTitle: 'title1', postDate: '2019年1月20日', postBrief: 'test1111', postUrl: '/' },
   { id: '2', postMediaUrl: pic2, postTitle: 'title2', postDate: '2019年2月20日', postBrief: 'test2222', postUrl: '/' },
   { id: '3', postMediaUrl: pic3, postTitle: 'title3', postDate: '2019年12月20日', postBrief: 'test3333', postUrl: '/' },
   { id: '4', postMediaUrl: pic1, postTitle: 'title4', postDate: '2019年11月20日', postBrief: 'test4444', postUrl: '/' },
 ];
+
+
+const NotificationList = [
+  { id: 1, category: '支持我', link: '/', title: 'star一下' },
+  { id: 2, category: '主题使用', link: '/', title: '常见问题' }
+]
+
+const SocialList = [
+  { id: 1, fontAweIconPrefix: 'fab', fontAweIconName: 'qq', href: '/' },
+  { id: 2, fontAweIconPrefix: 'fab', fontAweIconName: 'git', href: '/' },
+  { id: 3, fontAweIconPrefix: 'fab', fontAweIconName: 'weibo', href: '/' },
+  { id: 4, fontAweIconPrefix: 'fa', fontAweIconName: 'envelope-open', href: '/' }
+]
 
 
 class App extends Component {
@@ -39,6 +59,17 @@ class App extends Component {
           postUrl={item.postUrl} />);
     });
 
+    let notificationList = NotificationList.map(item => {
+      return (
+        <Notification
+          key={item.id}
+          category={item.category}
+          link={item.link}
+          title={item.title}
+        />
+      )
+    });
+
     return (
       <div>
         <Header blogInfo={blogInfo}></Header>
@@ -51,10 +82,18 @@ class App extends Component {
             </div>
 
             <div className="col-md-4 siderbar">
-              <Widget title="title">
+              <Widget title="搜索">
                 <Search
                   placeholder="请输入关键字"
                   searchButtonText="站内搜索" />
+              </Widget>
+
+              <Widget title="公告">
+                {notificationList}
+              </Widget>
+
+              <Widget title="社交">
+                <Social socialList={SocialList} />
               </Widget>
             </div>
           </div>
