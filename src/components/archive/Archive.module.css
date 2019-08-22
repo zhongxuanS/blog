@@ -1,0 +1,12 @@
+.archiveList {
+    margin-top: 10px;
+}
+.archiveItem {
+    display: inline-block;
+    width: 50%;
+}
+
+.archiveItem a{
+    color: #e67e22;
+    margin-right: 4px;
+}

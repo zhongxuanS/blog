@@ -12,6 +12,7 @@ import Search from './components/search';
 import Notification from './components/notification';
 import Social from './components/social';
 import Category from './components/category';
+import Archive from './components/archive';
 
 import pic1 from './components/carousel/images/pic1.jpg';
 import pic2 from './components/carousel/images/pic2.jpg';
@@ -46,6 +47,13 @@ const CategoryList = [
   { id: 2, href: '/', categoryName: '吐槽', count: 99999 },
   { id: 3, href: '/', categoryName: 'windows客户端', count: 100000 },
 ];
+
+const ArchiveList = [
+  { id: 1, href: '/', date: '2019年7月', count: 10 },
+  { id: 2, href: '/', date: '2019年12月', count: 99999 },
+  { id: 3, href: '/', date: '2019年1月', count: 100000 },
+];
+
 
 
 class App extends Component {
@@ -105,6 +113,10 @@ class App extends Component {
 
               <Widget title="分类">
                 <Category categoryList={CategoryList} />
+              </Widget>
+
+              <Widget title="存档">
+                <Archive archiveList={ArchiveList} />
               </Widget>
             </div>
           </div>
