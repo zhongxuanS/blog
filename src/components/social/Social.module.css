@@ -4,12 +4,14 @@
 .social .socialItem {
     background: grey;
     display: inline-block;
-    padding: 6px 8px;
+    padding: 6px 6px;
     line-height: 20px;
     height: 40px;
+    width: 40px;
     border-radius: 2px;
     transition: all 0.2s ease-in-out;
     margin-right: 10px;
+    text-align: center;
 }
 .social .socialItem:hover {
     background:  #e67e22;
