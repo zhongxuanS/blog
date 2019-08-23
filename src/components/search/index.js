@@ -41,7 +41,17 @@ const SearchItem = ({ href, title, content }) => {
   );
 }
 
-const Mask = ({ isShow, onClick }) => isShow ? <div className={`${styles.mask}`} onClick={onClick}></div> : null;
+const Mask = ({ isShow, onClick }) => {
+  const width = window.innerWidth || (document.body && document.body.clientWidth);
+  const height = window.innerHeight || (document.body && document.body.clientHeight);
+  return isShow ?
+    <div
+      className={`${styles.mask}`}
+      width={width}
+      height={height}
+      onClick={onClick}></div>
+    : null
+};
 
 class Search extends React.Component {
   constructor(props) {
