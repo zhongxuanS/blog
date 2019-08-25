@@ -1,0 +1,15 @@
+.backToUp {
+    position: fixed;
+    right: 60px;
+    bottom: 100px;
+    background: #959595;
+    z-index: 1;
+    height: 28px;
+    width: 28px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.backToUp:hover {
+    background: #e67e22
+}
