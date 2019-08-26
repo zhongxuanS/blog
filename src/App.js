@@ -13,6 +13,7 @@ import Notification from './components/notification';
 import Social from './components/social';
 import Category from './components/category';
 import Archive from './components/archive';
+import Footer from './components/footer';
 
 import pic1 from './components/carousel/images/pic1.jpg';
 import pic2 from './components/carousel/images/pic2.jpg';
@@ -89,6 +90,7 @@ class App extends Component {
       <div>
         <Header blogInfo={blogInfo}></Header>
         <Nav />
+
         <div className="container">
           <div className="row">
             <div className="col-md-8 main-content">
@@ -121,6 +123,8 @@ class App extends Component {
             </div>
           </div>
         </div>
+
+        <Footer />
 
       </div>
     );
