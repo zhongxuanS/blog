@@ -14,6 +14,7 @@ class Carousel extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
+      autoplay: true
     };
 
     const { urlList, className } = this.props;
