@@ -54,7 +54,7 @@ class BackToUp extends React.Component {
     const { isNeedShowBackToUp } = this.state;
     const element = isNeedShowBackToUp ?
       <div className={styles.backToUp} onClick={this.onClickHandler}>
-        <FontAwesomeIcon icon={faChevronUp} size="1x" color="white" />
+        <FontAwesomeIcon icon={faChevronUp} size="1x" color="white" className={styles.backToUpIcon} />
       </div > : null;
     return (element);
   }

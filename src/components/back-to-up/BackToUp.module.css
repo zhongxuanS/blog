@@ -13,3 +13,7 @@
 .backToUp:hover {
     background: #e67e22
 }
+
+.backToUp .backToUpIcon {
+    vertical-align: bottom;
+}
