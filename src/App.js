@@ -14,6 +14,7 @@ import Social from './components/social';
 import Category from './components/category';
 import Archive from './components/archive';
 import Footer from './components/footer';
+import BackToUp from './components/back-to-up';
 
 import pic1 from './components/carousel/images/pic1.jpg';
 import pic2 from './components/carousel/images/pic2.jpg';
@@ -121,11 +122,14 @@ class App extends Component {
                 <Archive archiveList={ArchiveList} />
               </Widget>
             </div>
+
+
+
           </div>
         </div>
-
         <Footer />
 
+        <BackToUp />
       </div>
     );
   }
