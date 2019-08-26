@@ -85,7 +85,6 @@ class Search extends React.Component {
         isBeginSearch: true
       });
 
-      console.log(searchResult);
     } else {
       this.setState({
         searchKey: '',
