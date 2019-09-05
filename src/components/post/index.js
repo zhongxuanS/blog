@@ -7,10 +7,10 @@ import { Button } from '../button';
 import styles from './Post.module.css';
 
 
-const PostMeida = ({ postMediaUrl, loading, loadFailed }) => {
+const PostMeida = ({ postUrl, postMediaUrl, loading, loadFailed }) => {
   return (
     <div className={styles.postMedia}>
-      <a href="/">
+      <a href={postUrl}>
         <Img
           src={postMediaUrl}
           Loading={loading}
@@ -22,11 +22,11 @@ const PostMeida = ({ postMediaUrl, loading, loadFailed }) => {
 }
 
 
-const PostContent = ({ postTitle, postDate, postBrief }) => {
+const PostContent = ({ postUrl, postTitle, postDate, postBrief }) => {
   return (
     <div className={styles.postContent}>
       <h1 className={styles.title}>
-        <a href="/">{postTitle}</a>
+        <a href={postUrl}>{postTitle}</a>
       </h1>
       <time className={styles.date}>{postDate}</time>
       <p className={styles.brief}>{postBrief}</p>
@@ -43,11 +43,13 @@ class Post extends React.Component {
         <div className={styles.post}>
           <PostMeida
             postMediaUrl={postMediaUrl}
+            postUrl={postUrl}
             loading={Loading}
             loadFailed={Loading} />
 
           <PostContent
             postTitle={postTitle}
+            postUrl={postUrl}
             postDate={postDate}
             postBrief={postBrief}
           />

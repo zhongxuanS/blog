@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import Carousel from '../carousel';
 import Post from '../post';
@@ -48,16 +49,45 @@ const ArchiveList = [
 ];
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      postListCurPage: [],
+      postCount: 0
+    }
+  }
+  componentDidMount() {
+    axios.post('/getTotalPost', {
+      start: 0,
+      count: 10
+    }).then(({ data }) => {
+      const isSuccess = data.isSuccess;
+      if (isSuccess) {
+        const responseData = data.data;
+        const postCount = responseData.count;
+        const postListCurPage = responseData.postList;
+        this.setState({
+          postListCurPage: postListCurPage.slice(),
+          postCount
+        })
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
   render() {
-    let postList = PostList.map(item => {
+    const { postListCurPage } = this.state;
+    let postList = postListCurPage.map(item => {
       return (
         <Post
           key={item.id}
-          postMediaUrl={item.postMediaUrl}
-          postTitle={item.postTitle}
-          postDate={item.postDate}
-          postBrief={item.postBrief}
-          postUrl={item.postUrl} />);
+          postMediaUrl={item.picPath}
+          postTitle={item.title}
+          postDate={item.created}
+          postBrief={item.brief}
+          postUrl={item.postPath} />);
     });
 
     let notificationList = NotificationList.map(item => {
