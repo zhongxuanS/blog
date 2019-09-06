@@ -16,14 +16,6 @@ import pic2 from '../carousel/images/pic2.jpg';
 import pic3 from '../carousel/images/pic3.jpg';
 
 
-const PostList = [
-  { id: '1', postMediaUrl: pic1, postTitle: 'title1', postDate: '2019年1月20日', postBrief: 'test1111', postUrl: '/' },
-  { id: '2', postMediaUrl: pic2, postTitle: 'title2', postDate: '2019年2月20日', postBrief: 'test2222', postUrl: '/' },
-  { id: '3', postMediaUrl: pic3, postTitle: 'title3', postDate: '2019年12月20日', postBrief: 'test3333', postUrl: '/' },
-  { id: '4', postMediaUrl: pic1, postTitle: 'title4', postDate: '2019年11月20日', postBrief: 'test4444', postUrl: '/' },
-];
-
-
 const NotificationList = [
   { id: 1, category: '支持我', link: '/', title: 'star一下' },
   { id: 2, category: '主题使用', link: '/', title: '常见问题' }
@@ -34,12 +26,6 @@ const SocialList = [
   { id: 2, fontAweIconPrefix: 'fab', fontAweIconName: 'git', href: '/' },
   { id: 3, fontAweIconPrefix: 'fab', fontAweIconName: 'weibo', href: '/' },
   { id: 4, fontAweIconPrefix: 'fa', fontAweIconName: 'envelope-open', href: '/' }
-];
-
-const CategoryList = [
-  { id: 1, href: '/', categoryName: '随笔', count: 10 },
-  { id: 2, href: '/', categoryName: '吐槽', count: 99999 },
-  { id: 3, href: '/', categoryName: 'windows客户端', count: 100000 },
 ];
 
 const ArchiveList = [
@@ -54,7 +40,8 @@ class Home extends React.Component {
 
     this.state = {
       postListCurPage: [],
-      postCount: 0
+      postCount: 0,
+      categoryList: []
     }
   }
   componentDidMount() {
@@ -75,10 +62,32 @@ class Home extends React.Component {
     }).catch(err => {
       console.log(err);
     });
+
+
+    axios.post('/getCategory').then(({ data }) => {
+      const isSuccess = data.isSuccess;
+      if (isSuccess) {
+        const responseData = data.data;
+        const categoryList = responseData.categoryList.map(category => {
+          return {
+            id: category.id,
+            name: category.name,
+            count: category.count,
+            href: `/category/${category.name}`
+          }
+        });
+
+        this.setState({ categoryList });
+      } else {
+        console.log(data.errorMsg);
+      }
+    }).catch(err => {
+      console.log(err);
+    });
   }
 
   render() {
-    const { postListCurPage } = this.state;
+    const { postListCurPage, categoryList } = this.state;
     let postList = postListCurPage.map(item => {
       return (
         <Post
@@ -125,7 +134,7 @@ class Home extends React.Component {
             </Widget>
 
             <Widget title="分类">
-              <Category categoryList={CategoryList} />
+              <Category categoryList={categoryList} />
             </Widget>
 
             <Widget title="存档">

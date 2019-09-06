@@ -20,7 +20,7 @@ class Category extends React.Component {
           <CategoryItem
             key={item.id}
             href={item.href}
-            categoryName={item.categoryName}
+            categoryName={item.name}
             count={item.count} />
         );
       });
