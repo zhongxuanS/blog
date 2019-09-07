@@ -2,10 +2,10 @@ import React from 'react';
 
 import styles from './Archive.module.css';
 
-const ArchiveItem = ({ href, date, count }) => {
+const ArchiveItem = ({ href, month, count }) => {
   return (
     <li className={styles.archiveItem}>
-      <a href={href}>{date}</a>
+      <a href={href}>{month}</a>
       (<span>{count}</span>)
   </li>
   );
@@ -20,7 +20,7 @@ class Archive extends React.Component {
           <ArchiveItem
             key={item.id}
             href={item.href}
-            date={item.date}
+            month={item.month}
             count={item.count}
           />
         );

@@ -28,11 +28,6 @@ const SocialList = [
   { id: 4, fontAweIconPrefix: 'fa', fontAweIconName: 'envelope-open', href: '/' }
 ];
 
-const ArchiveList = [
-  { id: 1, href: '/', date: '2019年7月', count: 10 },
-  { id: 2, href: '/', date: '2019年12月', count: 99999 },
-  { id: 3, href: '/', date: '2019年1月', count: 100000 },
-];
 
 class Home extends React.Component {
   constructor(props) {
@@ -41,7 +36,8 @@ class Home extends React.Component {
     this.state = {
       postListCurPage: [],
       postCount: 0,
-      categoryList: []
+      categoryList: [],
+      archiveList: []
     }
   }
   componentDidMount() {
@@ -84,10 +80,31 @@ class Home extends React.Component {
     }).catch(err => {
       console.log(err);
     });
+
+    axios.post('/getAllArchiveByMonth').then(({ data }) => {
+      const isSuccess = data.isSuccess;
+      if (isSuccess) {
+        const responseData = data.data;
+        const archiveList = responseData.archiveList.map(archive => {
+          return {
+            id: archive.id,
+            month: archive.month,
+            count: archive.count,
+            href: `/archive/${archive.month}`
+          }
+        });
+
+        this.setState({ archiveList });
+      } else {
+        console.log(data.errorMsg);
+      }
+    }).catch(err => {
+      console.log(err);
+    });
   }
 
   render() {
-    const { postListCurPage, categoryList } = this.state;
+    const { postListCurPage, categoryList, archiveList } = this.state;
     let postList = postListCurPage.map(item => {
       return (
         <Post
@@ -138,7 +155,7 @@ class Home extends React.Component {
             </Widget>
 
             <Widget title="存档">
-              <Archive archiveList={ArchiveList} />
+              <Archive archiveList={archiveList} />
             </Widget>
           </div>
         </div>
