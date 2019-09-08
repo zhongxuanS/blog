@@ -1,34 +1,10 @@
 import React from 'react';
+import axios from 'axios';
+import _ from 'underscore';
+
 import styles from './search.module.css';
 
 import { SearchButton } from '../button';
-
-const SEARCH_RESULT = [{
-  id: 1,
-  href: 'test1',
-  title: 'test1',
-  content: 'test1---content'
-},
-{
-  id: 2,
-  href: 'test2',
-  title: 'test2',
-  content: 'test2---content'
-},
-{
-  id: 3,
-  href: 'test3',
-  title: 'test3',
-  content: 'test3---content'
-},
-{
-  id: 4,
-  href: 'test4',
-  title: 'test4',
-  content: 'test4---content'
-}
-];
-
 
 const SearchItem = ({ href, title, content }) => {
   return (
@@ -65,6 +41,26 @@ class Search extends React.Component {
 
     this.searchChanged = this.searchChanged.bind(this);
     this.onClickMask = this.onClickMask.bind(this);
+    this.ajaxSearchPost = _.debounce(this.ajaxSearchPost.bind(this), 500)
+  }
+
+  ajaxSearchPost(searchKey) {
+    axios.post('/searchPost', {
+      keyWord: searchKey
+    }).then(({ data }) => {
+      if (data.isSuccess) {
+        const responseData = data.data;
+        const postList = responseData.postList;
+        this.setState({
+          searchResult: postList,
+          isBeginSearch: true
+        });
+      } else {
+        console.log(data.errorCode);
+      }
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   /**
@@ -74,17 +70,16 @@ class Search extends React.Component {
    * @param {*} event 
    */
   searchChanged(event) {
+    event.persist();
     const searchKey = event.target.value;
 
     if (searchKey !== '') {
-      const searchResult = SEARCH_RESULT.filter((item) => item.title.includes(searchKey) || item.content.includes(searchKey));
-
       this.setState({
         searchKey: searchKey,
-        searchResult: searchResult,
-        isBeginSearch: true
+        searchResult: null,
+        isBeginSearch: false
       });
-
+      this.ajaxSearchPost(searchKey);
     } else {
       this.setState({
         searchKey: '',
@@ -134,9 +129,9 @@ class Search extends React.Component {
               searchResult.map(result => {
                 return (<SearchItem
                   key={result.id}
-                  href={result.href}
+                  href={result.postPath}
                   title={result.title}
-                  content={result.content} />);
+                  content={result.brief} />);
               })
             }
           </div> : null
