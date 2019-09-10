@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import styles from './NotePad.module.css';
+
 export default class NotePad extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,9 @@ export default class NotePad extends React.Component {
     const { editorState } = this.state
 
     return (
-      <form onSubmit={this.submitContent}>
+      <form
+        className={styles.notepad}
+        onSubmit={this.submitContent}>
         <textarea
           value={editorState}
           onChange={this.handleEditorChange}

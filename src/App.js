@@ -37,12 +37,12 @@ class App extends Component {
         <div>
           <Header blogInfo={blogInfo}></Header>
           <Nav />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/diary" component={Diary} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/timeline" component={TimeLine} />
-          <Route exact path="/todo" component={Todo} />
-          <Route exact path="/tools" component={Tools} />
+          <Route path="/" component={Home} />
+          <Route path="/diary" component={Diary} />
+          <Route path="/about" component={About} />
+          <Route path="/timeline" component={TimeLine} />
+          <Route path="/todo" component={Todo} />
+          <Route path="/tools" component={Tools} />
 
           <Footer />
 
