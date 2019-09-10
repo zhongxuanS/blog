@@ -19,11 +19,11 @@ class Nav extends React.Component {
               <div className={`${styles.navbarCollapse} ${styles.navbar}`} id="main-menu">
                 <ul className={styles.menu}>
                   <li><NavLink id="test" activeClassName={styles.activeLink} exact to="/">首页</NavLink></li>
-                  <li><NavLink activeClassName={styles.activeLink} exact to="/diary/">说说</NavLink></li>
-                  <li><NavLink activeClassName={styles.activeLink} exact to="/todo/">Todo</NavLink></li>
-                  <li><NavLink activeClassName={styles.activeLink} exact to="/tools/">工具</NavLink></li>
-                  <li><NavLink activeClassName={styles.activeLink} exact to="/timeLine/">时间轴</NavLink></li>
-                  <li><NavLink activeClassName={styles.activeLink} exact to="/about/">关于</NavLink></li>
+                  <li><NavLink activeClassName={styles.activeLink} exact to="/diary">说说</NavLink></li>
+                  <li><NavLink activeClassName={styles.activeLink} exact to="/todo">Todo</NavLink></li>
+                  <li><NavLink activeClassName={styles.activeLink} exact to="/tools">工具</NavLink></li>
+                  <li><NavLink activeClassName={styles.activeLink} exact to="/timeLine">时间轴</NavLink></li>
+                  <li><NavLink activeClassName={styles.activeLink} exact to="/about">关于</NavLink></li>
                 </ul>
               </div>
             </div>
