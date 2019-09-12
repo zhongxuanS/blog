@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import Img from '../image';
 
 import Loading from '../loading';
@@ -10,13 +11,13 @@ import styles from './Post.module.css';
 const PostMeida = ({ postUrl, postMediaUrl, loading, loadFailed }) => {
   return (
     <div className={styles.postMedia}>
-      <a href={postUrl}>
+      <Link to={postUrl}>
         <Img
           src={postMediaUrl}
           Loading={loading}
           LoadFailed={loadFailed}>
         </Img>
-      </a>
+      </Link>
     </div>
   );
 }
@@ -26,7 +27,7 @@ const PostContent = ({ postUrl, postTitle, postDate, postBrief }) => {
   return (
     <div className={styles.postContent}>
       <h1 className={styles.title}>
-        <a href={postUrl}>{postTitle}</a>
+        <Link to={postUrl}>{postTitle}</Link>
       </h1>
       <time className={styles.date}>{postDate}</time>
       <p className={styles.brief}>{postBrief}</p>

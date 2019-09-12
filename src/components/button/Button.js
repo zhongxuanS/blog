@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 
 import Styles from './Button.module.css';
 
 const Button = ({ className, href, text }) =>
-  <a className={`${Styles.button} ${className}`} href={href}>{text}</a>
+  <Link className={`${Styles.button} ${className}`} to={href}>{text}</Link>
 
 
 Button.defaultProps = {

@@ -14,6 +14,7 @@ import Diary from './components/diary';
 import TimeLine from './components/timeline';
 import Todo from './components/todo';
 import Tools from './components/tools';
+import PostDetail from './components/post-detail';
 
 import Footer from './components/footer';
 import BackToUp from './components/back-to-up';
@@ -38,6 +39,7 @@ class App extends Component {
           <Header blogInfo={blogInfo}></Header>
           <Nav />
           <Route exact path="/" component={Home} />
+          <Route exact path="/post/:year/:month/:day/:title" component={PostDetail} />
           <Route exact path="/diary" component={Diary} />
           <Route exact path="/about" component={About} />
           <Route exact path="/timeline" component={TimeLine} />
