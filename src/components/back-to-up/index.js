@@ -21,6 +21,10 @@ class BackToUp extends React.Component {
     window.addEventListener('scroll', this.onScrollHander);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScrollHander);
+  }
+
   onScrollHander() {
     const scrollTop = document.documentElement.scrollTop;
     const isNeedShowBackToUp = scrollTop >= 100 ? true : false;

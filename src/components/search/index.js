@@ -70,7 +70,7 @@ class Search extends React.Component {
    * @param {*} event 
    */
   searchChanged(event) {
-    event.persist();
+    // event.persist();
     const searchKey = event.target.value;
 
     if (searchKey !== '') {
