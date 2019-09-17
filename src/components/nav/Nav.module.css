@@ -5,6 +5,10 @@
     background: #ffffff;
 }
 
+.menu {
+    margin: 0;
+}
+
 .menu li {
     display: inline-block;
 }
