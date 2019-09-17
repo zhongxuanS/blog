@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styles from './PostDetail.module.css';
 
 export default class PostDetail extends React.Component {
 
@@ -39,7 +40,9 @@ export default class PostDetail extends React.Component {
   render() {
     const { postContent } = this.state;
     return (
-      <div dangerouslySetInnerHTML={this.createMarkup(postContent)}></div>
+      <div
+        className={styles.postDetail}
+        dangerouslySetInnerHTML={this.createMarkup(postContent)}></div>
     );
   }
 }
