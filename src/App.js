@@ -15,6 +15,7 @@ import TimeLine from './components/timeline';
 import Todo from './components/todo';
 import Tools from './components/tools';
 import PostDetail from './components/post-detail';
+import EditPost from './components/edit-post';
 
 import Footer from './components/footer';
 import BackToUp from './components/back-to-up';
@@ -46,11 +47,12 @@ class App extends Component {
           <Route exact path="/todo" component={Todo} />
           <Route exact path="/tools" component={Tools} />
 
+          <EditPost />
           <Footer />
 
           <BackToUp />
         </div>
-      </Router>
+      </Router >
 
     );
   }
