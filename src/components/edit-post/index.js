@@ -33,9 +33,7 @@ export default class BasicDemo extends React.Component {
   }
 
   render() {
-
     const { editorState, outputHTML } = this.state
-
     return (
       <div>
         <div className="editor-wrapper">
