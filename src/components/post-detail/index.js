@@ -15,9 +15,9 @@ export default class PostDetail extends React.Component {
   }
 
   componentDidMount() {
-    const { year, month, day, title } = this.props.match.params;
+    const { id } = this.props.match.params;
 
-    axios.post('/getPostDetail', { year, month, day, title })
+    axios.post('/getPostDetailById', { id })
       .then(({ data }) => {
         const { isSuccess } = data;
         if (isSuccess) {

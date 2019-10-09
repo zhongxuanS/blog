@@ -39,7 +39,7 @@ class App extends Component {
           <Header blogInfo={blogInfo}></Header>
           <Nav />
           <Route exact path="/" component={Home} />
-          <Route exact path="/post/:year/:month/:day/:title" component={PostDetail} />
+          <Route exact path="/post/:id" component={PostDetail} />
           <Route exact path="/diary" component={Diary} />
           <Route exact path="/about" component={About} />
           <Route exact path="/timeline" component={TimeLine} />

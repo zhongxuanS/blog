@@ -134,7 +134,7 @@ class Home extends React.Component {
           postTitle={item.title}
           postDate={item.created}
           postBrief={item.brief}
-          postUrl={item.postPath} />);
+          postUrl={'post/' + item.id} />);
     });
 
     let notificationList = NotificationList.map(item => {
