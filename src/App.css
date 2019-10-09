@@ -19,3 +19,7 @@ a:hover {color: #e67e22; text-decoration:none;}
     height: 155px;
     margin-bottom: 30px;
 }
+
+.ant-timeline-item-tail {
+    border-left: 2px solid #188fff5e;
+}
