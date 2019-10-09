@@ -24,6 +24,7 @@ class Img extends React.Component {
 
   loadImage() {
     const { src } = this.props;
+    if (!src) return;
     this.img = new Image();
     this.img.onload = this.onLoad;
     this.img.onerror = this.onError;
@@ -32,10 +33,12 @@ class Img extends React.Component {
   }
 
   unloadImage() {
-    this.img.onerror = null;
-    this.img.onload = null;
-    this.img.src = '';
-    delete this.img;
+    if (this.img) {
+      this.img.onerror = null;
+      this.img.onload = null;
+      this.img.src = '';
+      delete this.img;
+    }
   }
 
   onLoad() {
@@ -90,8 +93,8 @@ class Img extends React.Component {
 
 
 Img.defaultProps = {
-  src: null,
-  className: null,
+  src: '',
+  className: '',
   width: '100%',
   height: '100%',
   alt: '图片下载失败',
@@ -101,7 +104,6 @@ Img.defaultProps = {
 };
 
 Img.propTypes = {
-  src: PropTypes.string.isRequired,
   className: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Pagination } from 'antd';
 
 import Carousel from '../carousel';
 import Post from '../post';
@@ -103,8 +104,28 @@ class Home extends React.Component {
     });
   }
 
+  onPageChange = (page, pageSize) => {
+    axios.post('/getTotalPost', {
+      start: (page - 1) * pageSize,
+      count: pageSize
+    }).then(({ data }) => {
+      const isSuccess = data.isSuccess;
+      if (isSuccess) {
+        const responseData = data.data;
+        const postCount = responseData.count;
+        const postListCurPage = responseData.postList;
+        this.setState({
+          postListCurPage: postListCurPage.slice(),
+          postCount
+        })
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
   render() {
-    const { postListCurPage, categoryList, archiveList } = this.state;
+    const { postListCurPage, categoryList, archiveList, postCount } = this.state;
     let postList = postListCurPage.map(item => {
       return (
         <Post
@@ -133,6 +154,7 @@ class Home extends React.Component {
           <div className="col-md-8 main-content">
             <Carousel className="carousel" urlList={[{ id: 1, path: pic1 }, { id: 2, path: pic2 }, { id: 3, path: pic3 }]} />
             {postList}
+            <Pagination defaultCurrent={1} total={postCount} onChange={this.onPageChange} />
           </div>
 
           <div className="col-md-4 siderbar">
