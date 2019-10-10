@@ -10,11 +10,11 @@ import Header from './components/header';
 import Nav from './components/nav';
 import Home from './components/home';
 import About from './components/about';
-import Diary from './components/diary';
 import TimeLine from './components/timeline';
 import Todo from './components/todo';
 import Tools from './components/tools';
 import PostDetail from './components/post-detail';
+import EditPost from './components/edit-post';
 
 import Footer from './components/footer';
 import BackToUp from './components/back-to-up';
@@ -40,7 +40,7 @@ class App extends Component {
           <Nav />
           <Route exact path="/" component={Home} />
           <Route exact path="/post/:id" component={PostDetail} />
-          <Route exact path="/diary" component={Diary} />
+          <Route exact path="/diary" component={EditPost} />
           <Route exact path="/about" component={About} />
           <Route exact path="/timeline" component={TimeLine} />
           <Route exact path="/todo" component={Todo} />

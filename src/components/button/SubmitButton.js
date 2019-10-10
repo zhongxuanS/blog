@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Button.module.css';
+import styles from './submitButton.module.css';
 export default class SubmitButton extends React.Component {
   render() {
     const { text, onClick, className } = this.props;

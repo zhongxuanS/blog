@@ -1,7 +1,9 @@
 .editorWrapper {
-    border-bottom: 1px solid #dddddd;
+    width: 860px;
+    border: 1px solid #cccccc;
+    margin: 0 auto 40px;
 }
 
-.submitBtn {
-    margin-top: 20px;
+.editor {
+    border: 1px solid #cccccc;
 }
